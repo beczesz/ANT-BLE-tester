@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE AndroidXML>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
+
+    <LinearLayout
+            tools:context=".Activity_HeartRate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:id="@+id/heart_rate_animator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dip"
+                android:gravity="center_vertical">
+
+            <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    >
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/blackheart"/>
+
+                <ImageView
+                        android:id="@+id/heart_bump"
+                        android:layout_width="36dip"
+                        android:layout_height="36dip"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone"
+                        android:background="@drawable/redheart"/>
+
+
+            </RelativeLayout>
+
+            <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/heart_rate_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Heart Rate"
+                    android:layout_weight="1"/>
+
+            <LinearLayout
+                    android:id="@+id/linearLayout_TitleAndStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/textView_Status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dip"
+                        android:text="[status]"
+                        />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <fragment
+                class="com.shinobicontrols.charts.ChartFragment"
+                android:id="@+id/chart"
+                android:layout_width="fill_parent"
+                android:layout_height="200dip"/>
+
+
+        <ScrollView
+                android:id="@+id/scrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout_TitleAndStatus">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#D7D7D7"
+                        android:layout_gravity="center_vertical"
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="EstTimestamp:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_EstTimestamp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#EBEBEB"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="Data Status:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_DataStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#D7D7D7"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:textStyle="bold"
+                            android:text="ComputedHeartRate:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_ComputedHeartRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:textStyle="bold"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#EBEBEB"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="HeartBeatCounter:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_HeartBeatCounter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#D7D7D7"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="HeartBeatEventTime:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_HeartBeatEventTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#EBEBEB"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="ManufacturerSpecificByte:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_ManufacturerSpecificByte"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#D7D7D7"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="PreviousHeartBeatEventTime:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_PreviousHeartBeatEventTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#EBEBEB"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="RR Flag:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_rRFlag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#D7D7D7"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="Calculated R-R Interval:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_CalculatedRrInterval"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#EBEBEB"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="CumulativeOperatingTime:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_CumulativeOperatingTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#D7D7D7"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="ManufacturerID:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_ManufacturerID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#EBEBEB"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="SerialNumber:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_SerialNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#D7D7D7"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="HardwareVersion:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_HardwareVersion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#EBEBEB"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="SoftwareVersion:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_SoftwareVersion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_height="26dip"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:layout_width="match_parent"
+                        android:background="#D7D7D7"
+
+                        >
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="ModelNumber:"/>
+
+                    <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/textView_ModelNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text="---"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+</ScrollView>
